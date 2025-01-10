@@ -26,7 +26,7 @@ void main() {
 }
 
 class HealthWellnessApp extends StatelessWidget {
-  const HealthWellnessApp({super.key});
+  const HealthWellnessApp({super.key} );
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,13 @@ class HealthWellnessApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 14, color: Colors.black54), // bodyText2 updated
         ),
         scaffoldBackgroundColor: const Color(0xFFF5F5F5), // Retained for scaffold background
-      ),
-      home: const FitnessTrackingScreen(), // Ensure this widget is implemented
+       ),routes: 
+       {
+         "/": (context) => HomeScreen(),
+         "/fitness_tracking": (context) => FitnessTrackingScreen(),
+         "/fitness_tracking": (context) => FitnessTrackingScreen(),
+       },
+     // home: const HomeScreen(), // Ensure this widget is implemented
     );
   }
 }

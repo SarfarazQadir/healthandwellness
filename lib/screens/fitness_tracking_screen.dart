@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/bottombar.dart';
 
 class FitnessTrackingScreen extends StatelessWidget {
   const FitnessTrackingScreen({super.key});
@@ -96,6 +97,7 @@ class FitnessTrackingScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomScreen(),  
     );
   }
 }

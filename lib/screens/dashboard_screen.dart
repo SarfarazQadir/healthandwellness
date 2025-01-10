@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/bottombar.dart';
 
 class HealthTrackerApp extends StatelessWidget {
   const HealthTrackerApp({super.key});
@@ -100,33 +101,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: const Color(0xFF4CAFCE), // Blue
-        unselectedItemColor: const Color(0xFF757575), // Gray
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.directions_run),
-            label: 'Fitness',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-            label: 'Nutrition',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bed),
-            label: 'Sleep',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
+    bottomNavigationBar: BottomScreen(),
     );
   }
 }
