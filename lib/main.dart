@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/painting.dart';
+import 'package:healthandwellness/screens/settings.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
@@ -50,7 +51,7 @@ class HealthWellnessApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF5F5F5), // Retained for scaffold background
        ),routes: 
        {
-         "/": (context) => HomeScreen(),
+         "/": (context) => SettingsScreen(),
          "/fitness_tracking": (context) => FitnessTrackingScreen(),
          "/nutrition_logging": (context) => NutritionLoggingScreen(),
           "/sleep_monitoring": (context) => SleepMonitoringScreen(),
