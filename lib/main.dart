@@ -52,7 +52,8 @@ class HealthWellnessApp extends StatelessWidget {
        {
          "/": (context) => HomeScreen(),
          "/fitness_tracking": (context) => FitnessTrackingScreen(),
-         "/fitness_tracking": (context) => FitnessTrackingScreen(),
+         "/nutrition_logging": (context) => NutritionLoggingScreen(),
+          "/sleep_monitoring": (context) => SleepMonitoringScreen(),
        },
      // home: const HomeScreen(), // Ensure this widget is implemented
     );

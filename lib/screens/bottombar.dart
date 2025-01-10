@@ -37,9 +37,9 @@ class BottomScreen extends StatelessWidget {
         } else if (index == 1) {
           Navigator.pushReplacementNamed(context, "/fitness_tracking");
         } else if (index == 2) {
-          //Navigator.pushReplacementNamed(context, "/fitness_tracking");
+          Navigator.pushReplacementNamed(context, "/nutrition_logging");
         } else if (index == 3) {
-          // Navigate to the sleep screen
+                    Navigator.pushReplacementNamed(context, "/sleep_monitoring");
         } else if (index == 4) {
           // Navigate to the profile screen
           
