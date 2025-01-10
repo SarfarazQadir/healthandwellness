@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
+import 'package:healthandwellness/screens/about.dart';
+import 'package:healthandwellness/screens/helpsupport.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -81,7 +83,12 @@ class SettingsScreen extends StatelessWidget {
             title: 'Help & Support',
             subtitle: 'Get help and support',
             onTap: () {
-              // Navigate to Help & Support Screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HelpSupportScreen(),
+                ),
+              );
             },
           ),
           _settingsOption(
@@ -89,7 +96,12 @@ class SettingsScreen extends StatelessWidget {
             title: 'About',
             subtitle: 'Learn more about the app',
             onTap: () {
-              // Navigate to About Screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutScreen(),
+                ),
+              );
             },
           ),
         ],
