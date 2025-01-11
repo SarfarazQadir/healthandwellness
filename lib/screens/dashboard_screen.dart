@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
+import 'package:healthandwellness/screens/help.dart';
+import 'package:healthandwellness/screens/notificationscreen.dart';
+import 'package:healthandwellness/screens/privacypolicy.dart';
+import 'package:healthandwellness/screens/profilescreen.dart';
+import 'package:healthandwellness/screens/settings.dart';
 
 class HealthTrackerApp extends StatelessWidget {
   const HealthTrackerApp({super.key});
@@ -144,31 +149,56 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            if (isMenuExpanded)
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  _buildAnimatedMenuItem(context, Icons.person, 'Profile', () {
-                    debugPrint('Profile Clicked');
-                  }),
-                  _buildAnimatedMenuItem(context, Icons.settings, 'Settings', () {
-                    debugPrint('Settings Clicked');
-                  }),
-                  _buildAnimatedMenuItem(context, Icons.notifications, 'Notifications', () {
-                    debugPrint('Notifications Clicked');
-                  }),
-                  _buildAnimatedMenuItem(context, Icons.help, 'Help', () {
-                    debugPrint('Help Clicked');
-                  }),
-                  const SizedBox(height: 10),
-                ],
-              ),
-            FloatingActionButton(
-              onPressed: toggleMenu,
-              child: Icon(isMenuExpanded ? Icons.close : Icons.menu),
-              backgroundColor: isMenuExpanded ? Colors.red : Colors.blue,
-            ),
-          ],
+  if (isMenuExpanded)
+    Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+     children: [
+  _buildAnimatedMenuItem(context, Icons.person, 'Profile', () {
+    debugPrint('Profile Clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProfileScreen()),
+    );
+  }),
+  _buildAnimatedMenuItem(context, Icons.settings, 'Settings', () {
+    debugPrint('Settings Clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SettingsScreen()),
+    );
+  }),
+  _buildAnimatedMenuItem(context, Icons.notifications, 'Notifications', () {
+    debugPrint('Notifications Clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NotificationScreen()),
+    );
+  }),
+  _buildAnimatedMenuItem(context, Icons.help, 'Help', () {
+    debugPrint('Help Clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HelpScreen()),
+    );
+  }),
+  _buildAnimatedMenuItem(context, Icons.privacy_tip, 'Privacy Policy', () {
+    debugPrint('Privacy Policy Clicked');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+    );
+  }),
+  const SizedBox(height: 10),
+],
+
+    ),
+  FloatingActionButton(
+    onPressed: toggleMenu,
+    child: Icon(isMenuExpanded ? Icons.close : Icons.menu),
+    backgroundColor: isMenuExpanded ? Colors.red : Colors.blue,
+  ),
+],
+
         ),
       ),
     );
