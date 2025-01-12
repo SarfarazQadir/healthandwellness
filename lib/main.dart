@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/painting.dart';
 import 'package:healthandwellness/screens/about.dart';
+import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/settings.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
@@ -56,6 +57,7 @@ class HealthWellnessApp extends StatelessWidget {
          "/fitness_tracking": (context) => FitnessTrackingScreen(),
          "/nutrition_logging": (context) => NutritionLoggingScreen(),
           "/sleep_monitoring": (context) => SleepMonitoringScreen(),
+          "/profile": (context) => ProfileScreen(),
        },
      // home: const HomeScreen(), // Ensure this widget is implemented
     );

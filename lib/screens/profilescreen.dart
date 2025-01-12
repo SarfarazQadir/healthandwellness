@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/bottombar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -95,6 +96,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomScreen(),
     );
   }
 
