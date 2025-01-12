@@ -27,6 +27,10 @@ class BottomScreen extends StatelessWidget {
           label: 'Sleep',
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.psychology),
+          label: 'Mental Wellness',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Profile',
         ),
@@ -41,6 +45,8 @@ class BottomScreen extends StatelessWidget {
         } else if (index == 3) {
           Navigator.pushReplacementNamed(context, "/sleep_monitoring");
         } else if (index == 4) {
+          Navigator.pushReplacementNamed(context, "/mental_wellness");
+        } else if (index == 5) {
           Navigator.pushReplacementNamed(context, "/profile");
         }
       },
