@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
 import 'package:healthandwellness/screens/about.dart';
 import 'package:healthandwellness/screens/helpsupport.dart';
+import 'package:healthandwellness/screens/notificationscreen.dart';
+import 'package:healthandwellness/screens/privacypolicy.dart';
+import 'package:healthandwellness/screens/profilescreen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -37,7 +40,12 @@ class SettingsScreen extends StatelessWidget {
             title: 'Profile',
             subtitle: 'Manage your profile settings',
             onTap: () {
-              // Navigate to Profile Settings Screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileScreen(),
+                ),
+              );
             },
           ),
           _settingsOption(
@@ -45,7 +53,12 @@ class SettingsScreen extends StatelessWidget {
             title: 'Privacy',
             subtitle: 'Control your privacy settings',
             onTap: () {
-              // Navigate to Privacy Settings Screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PrivacyPolicyScreen(),
+                ),
+              );
             },
           ),
           const SizedBox(height: 24),
@@ -55,7 +68,12 @@ class SettingsScreen extends StatelessWidget {
             title: 'Notification Settings',
             subtitle: 'Manage notifications preferences',
             onTap: () {
-              // Navigate to Notification Settings Screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ),
+              );
             },
           ),
           const SizedBox(height: 24),
