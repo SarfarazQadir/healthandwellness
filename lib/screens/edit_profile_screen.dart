@@ -100,6 +100,7 @@ class EditProfileScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomAppBar(),
     );
   }
 
