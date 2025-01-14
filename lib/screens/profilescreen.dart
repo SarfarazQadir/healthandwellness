@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
+import 'package:healthandwellness/screens/edit_profile_screen.dart';
+import 'package:healthandwellness/screens/change_password_screen.dart';
+import 'package:healthandwellness/screens/privacy_settings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -24,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/profile_placeholder.png'), // Replace with user image
+              backgroundImage: AssetImage('assets/profile_placeholder.png'),
             ),
             const SizedBox(height: 16),
             const Text(
@@ -57,24 +60,42 @@ class ProfileScreen extends StatelessWidget {
               'Edit Profile',
               'Update your personal information',
               Icons.edit,
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EditProfileScreen(),
+                  ),
+                );
+              },
             ),
             _buildProfileOption(
               context,
               'Change Password',
               'Update your account password',
               Icons.lock_outline,
-            ),
-            _buildProfileOption(
-              context,
-              'Notifications',
-              'Manage notification preferences',
-              Icons.notifications_outlined,
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ChangePasswordScreen(),
+                  ),
+                );
+              },
             ),
             _buildProfileOption(
               context,
               'Privacy Settings',
               'Control your privacy options',
               Icons.privacy_tip_outlined,
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PrivacySettingsScreen(),
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
@@ -96,7 +117,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomScreen(),
+      bottomNavigationBar: const BottomScreen(),
     );
   }
 
@@ -105,6 +126,7 @@ class ProfileScreen extends StatelessWidget {
     String title,
     String subtitle,
     IconData icon,
+    VoidCallback onTap,
   ) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -124,10 +146,7 @@ class ProfileScreen extends StatelessWidget {
           style: const TextStyle(color: Colors.black54, fontSize: 14),
         ),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black45),
-        onTap: () {
-          debugPrint('$title Clicked');
-          // Add navigation or action here
-        },
+        onTap: onTap,
       ),
     );
   }

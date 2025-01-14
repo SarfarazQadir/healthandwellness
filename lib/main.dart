@@ -54,7 +54,7 @@ class HealthWellnessApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF5F5F5), // Retained for scaffold background
        ),routes: 
        {
-         "/": (context) => SignupScreen(),
+         "/": (context) => HomeScreen(),
          "/fitness_tracking": (context) => FitnessTrackingScreen(),
          "/nutrition_logging": (context) => NutritionLoggingScreen(),
           "/sleep_monitoring": (context) => SleepMonitoringScreen(),
