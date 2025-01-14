@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/bottombar.dart'; // Adjust the import path as needed
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
@@ -100,7 +101,7 @@ class EditProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(),
+      bottomNavigationBar: const BottomScreen(),
     );
   }
 
