@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/bottombar.dart'; // Adjust the import path as needed
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -79,7 +80,7 @@ class ChangePasswordScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(),
+      bottomNavigationBar: const BottomScreen(),
     );
   }
 
