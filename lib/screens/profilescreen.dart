@@ -27,11 +27,11 @@ class ProfileScreen extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/profile_placeholder.png'),
+              backgroundImage: AssetImage('assets/images/brainstroaming.jpg'),
             ),
             const SizedBox(height: 16),
             const Text(
-              'John Doe',
+              'Sarfaraz Qadir',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const Text(
-              'johndoe@example.com',
+              'sarfaraz@gmail.com',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black54,
