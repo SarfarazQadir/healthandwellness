@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:healthandwellness/screens/bottombar.dart';
+import 'package:healthandwellness/screens/cycling.dart';
+import 'package:healthandwellness/screens/morningwalk.dart';
+import 'package:healthandwellness/screens/yogasession.dart';
+import 'bottombar.dart';
 
 class FitnessTrackingScreen extends StatelessWidget {
   const FitnessTrackingScreen({super.key});
@@ -72,24 +75,48 @@ class FitnessTrackingScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Expanded(
               child: ListView(
-                children: const [
+                children: [
                   ActivityTile(
                     activity: 'Morning Walk',
                     duration: '45 min',
                     icon: Icons.directions_walk,
-                    color: Color(0xFF4CAFCE), // Blue
+                    color: const Color(0xFF4CAFCE), // Blue
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MorningWalkScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ActivityTile(
                     activity: 'Yoga Session',
                     duration: '30 min',
                     icon: Icons.self_improvement,
-                    color: Color(0xFF8BC34A), // Green
+                    color: const Color(0xFF8BC34A), // Green
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const YogaSessionScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ActivityTile(
                     activity: 'Cycling',
                     duration: '20 min',
                     icon: Icons.pedal_bike,
-                    color: Color(0xFFFFB74D), // Peach
+                    color: const Color(0xFFFFB74D), // Peach
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CyclingScreen(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -97,7 +124,7 @@ class FitnessTrackingScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomScreen(),  
+      bottomNavigationBar: BottomScreen(),
     );
   }
 }
@@ -168,6 +195,7 @@ class ActivityTile extends StatelessWidget {
   final String duration;
   final IconData icon;
   final Color color;
+  final VoidCallback onTap;
 
   const ActivityTile({
     super.key,
@@ -175,6 +203,7 @@ class ActivityTile extends StatelessWidget {
     required this.duration,
     required this.icon,
     required this.color,
+    required this.onTap,
   });
 
   @override
@@ -196,12 +225,10 @@ class ActivityTile extends StatelessWidget {
         ),
         subtitle: Text(
           duration,
-          style: const TextStyle(
-            fontSize: 14,
-            color: Colors.black54,
-          ),
+          style: const TextStyle(fontSize: 14, color: Colors.black54),
         ),
         trailing: const Icon(Icons.chevron_right, color: Colors.black54),
+        onTap: onTap,
       ),
     );
   }

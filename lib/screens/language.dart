@@ -80,6 +80,7 @@ class LanguageScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(),
     );
   }
 

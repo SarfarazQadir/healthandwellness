@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/painting.dart';
 import 'package:healthandwellness/screens/about.dart';
+import 'package:healthandwellness/screens/cycling.dart';
 import 'package:healthandwellness/screens/forgot_password_screen.dart';
+import 'package:healthandwellness/screens/morningwalk.dart';
 import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/settings.dart';
+import 'package:healthandwellness/screens/yogasession.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';

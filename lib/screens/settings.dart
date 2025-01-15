@@ -7,6 +7,7 @@ import 'package:healthandwellness/screens/notificationscreen.dart';
 import 'package:healthandwellness/screens/privacypolicy.dart';
 import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/theme.dart';
+import 'package:flutter/foundation.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -85,24 +86,26 @@ class SettingsScreen extends StatelessWidget {
             title: 'Theme',
             subtitle: 'Customize app appearance',
             onTap: () {
- Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ThemeScreen(),
-      ),
-    );            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ThemeScreen(),
+                ),
+              );
+            },
           ),
           _settingsOption(
             icon: Icons.language,
             title: 'Language',
             subtitle: 'Select your preferred language',
             onTap: () {
- Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LanguageScreen(),
-      ),
-    );            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LanguageScreen(),
+                ),
+              );
+            },
           ),
           const SizedBox(height: 24),
           _settingsSectionTitle('Support'),
