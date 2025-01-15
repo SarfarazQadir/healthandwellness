@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Image.asset('assets/google.png'),
+                      icon: Image.asset('assets/images/google.png'),
                       iconSize: 32,
                       onPressed: () {
                         // Handle Google login
@@ -131,7 +131,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     IconButton(
-                      icon: Image.asset('assets/facebook.png'),
+                      icon: Image.asset('assets/images/facebook.png'),
                       iconSize: 32,
                       onPressed: () {
                         // Handle Facebook login

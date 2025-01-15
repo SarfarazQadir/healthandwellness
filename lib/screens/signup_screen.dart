@@ -146,16 +146,16 @@ class SignupScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Image.asset('assets/google.png'),
-                      iconSize: 32,
+                      icon: Image.asset('assets/images/google.png'),
+                      iconSize: 25,
                       onPressed: () {
                         // Handle Google signup
                       },
                     ),
                     const SizedBox(width: 10),
                     IconButton(
-                      icon: Image.asset('assets/facebook.png'),
-                      iconSize: 32,
+                      icon: Image.asset('assets/images/facebook.png'),
+                      iconSize: 25,
                       onPressed: () {
                         // Handle Facebook signup
                       },
