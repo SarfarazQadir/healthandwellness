@@ -99,7 +99,7 @@ class FitnessTrackingScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const YogaSessionScreen(),
+                          builder: (context) =>  YogaScreen(),
                         ),
                       );
                     },
@@ -113,7 +113,7 @@ class FitnessTrackingScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const CyclingScreen(),
+                          builder: (context) =>  CyclingScreen(),
                         ),
                       );
                     },
