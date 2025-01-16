@@ -32,7 +32,7 @@ class MorningWalkScreen extends StatelessWidget {
             height: 200,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/walk.jpg'), // Ensure the image is added to your assets
+                image: AssetImage('assets/images/walk2.jpg'), // Ensure the image is added to your assets
                 fit: BoxFit.cover,
               ),
             ),
