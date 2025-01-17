@@ -23,121 +23,123 @@ class MorningWalkScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Scrollbar(  // Adding Scrollbar to the entire body
-        thumbVisibility: true,  // Make scrollbar thumb always visible
-        child: SingleChildScrollView(  // Allow the entire body to scroll
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Banner Image
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/walk2.jpg'), // Ensure the image is added to your assets
-                    fit: BoxFit.cover,
-                  ),
-                ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Banner Image
+          Container(
+            width: double.infinity,
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/walk2.jpg'), // Ensure the image is added to your assets
+                fit: BoxFit.cover,
               ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  "Morning Walk Session",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF212121), // Dark Gray
-                  ),
-                ),
-              ),
-              // Session Timer
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Duration",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF757575), // Medium Gray
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        "00:45:00",
-                        style: TextStyle(
-                          fontSize: 36,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF4CAFCE), // Blue
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  "Morning Walk Stats:",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF212121), // Dark Gray
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              // Morning Walk Stats List with Scrollbar
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  children: const [
-                    StatCard(
-                      title: "Distance",
-                      value: "4.5 km",
-                      color: Color(0xFF4CAFCE), // Blue
-                    ),
-                    SizedBox(height: 16),
-                    StatCard(
-                      title: "Steps",
-                      value: "5,320",
-                      color: Color(0xFF8BC34A), // Green
-                    ),
-                    SizedBox(height: 16),
-                    StatCard(
-                      title: "Calories Burned",
-                      value: "250 kcal",
-                      color: Color(0xFFFFB74D), // Peach
-                    ),
-                    SizedBox(height: 16),
-                    StatCard(
-                      title: "Duration",
-                      value: "00:45:00",
-                      color: Color(0xFF4CAF50), // Green
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Morning Walk Session",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF212121), // Dark Gray
+              ),
+            ),
+          ),
+          // Session Timer
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Duration",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF757575), // Medium Gray
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    "00:45:00",
+                    style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF4CAFCE), // blue
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Morning Walk Stats:",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF212121), // Dark Gray
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          // Morning Walk Stats List with Scrollbar
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Scrollbar(
+                thumbVisibility: true, // Always visible when scrolling
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: const [
+                      StatCard(
+                        title: "Distance",
+                        value: "4.5 km",
+                        color: Color(0xFF4CAFCE), // Blue
+                      ),
+                      SizedBox(height: 16),
+                      StatCard(
+                        title: "Steps",
+                        value: "5,320",
+                        color: Color(0xFF8BC34A), // Green
+                      ),
+                      SizedBox(height: 16),
+                      StatCard(
+                        title: "Calories Burned",
+                        value: "250 kcal",
+                        color: Color(0xFFFFB74D), // Peach
+                      ),
+                      SizedBox(height: 16),
+                      StatCard(
+                        title: "Duration",
+                        value: "00:45:00",
+                        color: Color(0xFF4CAF50), // Green
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
