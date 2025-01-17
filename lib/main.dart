@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:healthandwellness/screens/about.dart';
 import 'package:healthandwellness/screens/cycling.dart';
 import 'package:healthandwellness/screens/forgot_password_screen.dart';
+import 'package:healthandwellness/screens/home.dart';
 import 'package:healthandwellness/screens/morningwalk.dart';
 import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/settings.dart';

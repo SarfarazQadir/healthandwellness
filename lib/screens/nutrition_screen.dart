@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/addmeal.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
 
 class NutritionLoggingScreen extends StatelessWidget {
@@ -93,7 +94,12 @@ class NutritionLoggingScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: const Color(0xFF4CAFCE), // Blue
         onPressed: () {
-          // Navigate to Add Meal Screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddMealScreen(),
+            ),
+          );
         },
         icon: const Icon(Icons.add),
         label: const Text('Add Meal'),
