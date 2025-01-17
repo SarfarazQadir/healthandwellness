@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:healthandwellness/screens/addmeal.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
+import 'package:healthandwellness/screens/fitness_tracking_screen.dart';
 import 'package:healthandwellness/screens/help.dart';
+import 'package:healthandwellness/screens/mental_wellness_screen.dart';
 import 'package:healthandwellness/screens/notificationscreen.dart';
 import 'package:healthandwellness/screens/nutrition_screen.dart';
 import 'package:healthandwellness/screens/privacypolicy.dart';
 import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/settings.dart';
+import 'package:healthandwellness/screens/sleep_screen.dart';
 
 class HealthTrackerApp extends StatelessWidget {
   const HealthTrackerApp({super.key});
@@ -28,7 +31,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   bool isMenuExpanded = false;
   late AnimationController _controller;
 
@@ -77,7 +81,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        // Wrap the body with SingleChildScrollView for full screen scrolling
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,59 +144,104 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 ),
               ],
             ),
-             const SizedBox(height: 24),
-            Expanded(
-              child: GridView(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                ),
-                children: [
-                  _homeCard(
-                    icon: Icons.fastfood,
-                    title: 'Nutrition Logging',
-                    color: const Color(0xFF4CAFCE), // Blue
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NutritionLoggingScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                  _homeCard(
-                    icon: Icons.add,
-                    title: 'Add Meal',
-                    color: const Color(0xFF8BC34A), // Green
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AddMealScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                  _homeCard(
-                    icon: Icons.insights,
-                    title: 'Insights',
-                    color: const Color(0xFFFFB74D), // Peach
-                    onTap: () {
-                      // Implement Insights Navigation
-                    },
-                  ),
-                  _homeCard(
-                    icon: Icons.settings,
-                    title: 'Settings',
-                    color: const Color(0xFF9C27B0), // Purple
-                    onTap: () {
-                      // Implement Settings Navigation
-                    },
-                  ),
-                ],
+            const SizedBox(height: 24),
+            // This is the section where we add the cards
+            GridView.builder(
+              shrinkWrap: true, // Allow GridView to take only necessary space
+              physics:
+                  const NeverScrollableScrollPhysics(), // Disable scrolling of GridView
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
               ),
+              itemCount: 6, // Number of cards
+              itemBuilder: (context, index) {
+                switch (index) {
+                  case 0:
+                    return _homeCard(
+                      icon: Icons.fastfood,
+                      title: 'Nutrition Logging',
+                      color: const Color(0xFF4CAFCE), // Blue
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const NutritionLoggingScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  case 1:
+                    return _homeCard(
+                      icon: Icons.add,
+                      title: 'Add Meal',
+                      color: const Color(0xFF8BC34A), // Green
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddMealScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  case 2:
+                    return _homeCard(
+                      icon: Icons.psychology,
+                      title: 'Mental Wellness',
+                      color: const Color(0xFF9C27B0), // Purple
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MentalWellnessScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  case 3:
+                    return _homeCard(
+                      icon: Icons.bed,
+                      title: 'Sleep Monitoring',
+                      color: const Color(0xFF3F51B5), // Indigo
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SleepMonitoringScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  case 4:
+                    return _homeCard(
+                      icon: Icons.fitness_center,
+                      title: 'Fitness Tracking',
+                      color: const Color(0xFFFF5722), // Deep Orange
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FitnessTrackingScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  case 5:
+                    return _homeCard(
+                      icon: Icons.insights,
+                      title: 'Insights',
+                      color: const Color(0xFFFFB74D), // Peach
+                      onTap: () {
+                        // Implement Insights Navigation
+                      },
+                    );
+                  default:
+                    return Container(); // Fallback
+                }
+              },
             ),
           ],
         ),
@@ -205,62 +255,69 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-  if (isMenuExpanded)
-    Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-     children: [
-  _buildAnimatedMenuItem(context, Icons.person, 'Profile', () {
-    debugPrint('Profile Clicked');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ProfileScreen()),
-    );
-  }),
-  _buildAnimatedMenuItem(context, Icons.settings, 'Settings', () {
-    debugPrint('Settings Clicked');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SettingsScreen()),
-    );
-  }),
-  _buildAnimatedMenuItem(context, Icons.notifications, 'Notifications', () {
-    debugPrint('Notifications Clicked');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const NotificationScreen()),
-    );
-  }),
-  _buildAnimatedMenuItem(context, Icons.help, 'Help', () {
-    debugPrint('Help Clicked');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const HelpScreen()),
-    );
-  }),
-  _buildAnimatedMenuItem(context, Icons.privacy_tip, 'Privacy Policy', () {
-    debugPrint('Privacy Policy Clicked');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
-    );
-  }),
-  const SizedBox(height: 10),
-],
-
-    ),
-  FloatingActionButton(
-    onPressed: toggleMenu,
-    child: Icon(isMenuExpanded ? Icons.close : Icons.menu),
-    backgroundColor: isMenuExpanded ? Colors.red : Colors.blue,
-  ),
-],
-
+            if (isMenuExpanded)
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  _buildAnimatedMenuItem(context, Icons.person, 'Profile', () {
+                    debugPrint('Profile Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()),
+                    );
+                  }),
+                  _buildAnimatedMenuItem(context, Icons.settings, 'Settings',
+                      () {
+                    debugPrint('Settings Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsScreen()),
+                    );
+                  }),
+                  _buildAnimatedMenuItem(
+                      context, Icons.notifications, 'Notifications', () {
+                    debugPrint('Notifications Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationScreen()),
+                    );
+                  }),
+                  _buildAnimatedMenuItem(context, Icons.help, 'Help', () {
+                    debugPrint('Help Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HelpScreen()),
+                    );
+                  }),
+                  _buildAnimatedMenuItem(
+                      context, Icons.privacy_tip, 'Privacy Policy', () {
+                    debugPrint('Privacy Policy Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PrivacyPolicyScreen()),
+                    );
+                  }),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            FloatingActionButton(
+              onPressed: toggleMenu,
+              child: Icon(isMenuExpanded ? Icons.close : Icons.menu),
+              backgroundColor: isMenuExpanded ? Colors.red : Colors.blue,
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildAnimatedMenuItem(BuildContext context, IconData icon, String label, VoidCallback onPressed) {
+  Widget _buildAnimatedMenuItem(BuildContext context, IconData icon,
+      String label, VoidCallback onPressed) {
     return ScaleTransition(
       scale: CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
       child: Padding(
@@ -380,7 +437,8 @@ class _HoverButtonState extends State<HoverButton> {
             const SizedBox(width: 8),
             Text(
               widget.label,
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -388,14 +446,22 @@ class _HoverButtonState extends State<HoverButton> {
     );
   }
 }
+
 Widget _homeCard({
-    required IconData icon,
-    required String title,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
+  required IconData icon,
+  required String title,
+  required Color color,
+  required VoidCallback onTap,
+}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: MouseRegion(
+      onEnter: (_) {
+        // Handle Hover Effect
+      },
+      onExit: (_) {
+        // Handle Hover Effect
+      },
       child: Card(
         elevation: 3,
         shape: RoundedRectangleBorder(
@@ -429,6 +495,6 @@ Widget _homeCard({
           ),
         ),
       ),
-    );
-  }
-
+    ),
+  );
+}
