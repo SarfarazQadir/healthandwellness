@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:healthandwellness/screens/addmeal.dart';
 import 'package:healthandwellness/screens/bottombar.dart';
 import 'package:healthandwellness/screens/help.dart';
 import 'package:healthandwellness/screens/notificationscreen.dart';
+import 'package:healthandwellness/screens/nutrition_screen.dart';
 import 'package:healthandwellness/screens/privacypolicy.dart';
 import 'package:healthandwellness/screens/profilescreen.dart';
 import 'package:healthandwellness/screens/settings.dart';
@@ -136,6 +138,60 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   icon: Icons.fastfood,
                 ),
               ],
+            ),
+             const SizedBox(height: 24),
+            Expanded(
+              child: GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                ),
+                children: [
+                  _homeCard(
+                    icon: Icons.fastfood,
+                    title: 'Nutrition Logging',
+                    color: const Color(0xFF4CAFCE), // Blue
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NutritionLoggingScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  _homeCard(
+                    icon: Icons.add,
+                    title: 'Add Meal',
+                    color: const Color(0xFF8BC34A), // Green
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddMealScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  _homeCard(
+                    icon: Icons.insights,
+                    title: 'Insights',
+                    color: const Color(0xFFFFB74D), // Peach
+                    onTap: () {
+                      // Implement Insights Navigation
+                    },
+                  ),
+                  _homeCard(
+                    icon: Icons.settings,
+                    title: 'Settings',
+                    color: const Color(0xFF9C27B0), // Purple
+                    onTap: () {
+                      // Implement Settings Navigation
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -332,5 +388,47 @@ class _HoverButtonState extends State<HoverButton> {
     );
   }
 }
-
+Widget _homeCard({
+    required IconData icon,
+    required String title,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: color.withOpacity(0.1),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: color.withOpacity(0.2),
+                radius: 30,
+                child: Icon(icon, color: color, size: 32),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF212121), // Dark Gray
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
