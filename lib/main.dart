@@ -35,7 +35,7 @@ void main() {
 
 class HealthWellnessApp extends StatelessWidget {
   const HealthWellnessApp({super.key} );
-//   Main File
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
