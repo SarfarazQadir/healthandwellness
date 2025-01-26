@@ -15,7 +15,7 @@ import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/fitness_tracking_screen.dart';
 import 'screens/goal_screen.dart';
-import 'screens/mental_wellness_screen.dart';
+import 'screens/mental_wellness_screen.dart'; 
 import 'screens/nutrition_screen.dart';
 import 'screens/sleep_screen.dart';
 
@@ -33,9 +33,11 @@ void main() {
   runApp(const HealthWellnessApp());
 }
 
+//  HealthWellnessApp is a StatelessWidget
+
 class HealthWellnessApp extends StatelessWidget {
   const HealthWellnessApp({super.key} );
-
+// It Over Riding here
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
