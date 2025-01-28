@@ -33,8 +33,6 @@ void main() {
   runApp(const HealthWellnessApp());
 }
 
-//  HealthWellnessApp is a StatelessWidget
-
 class HealthWellnessApp extends StatelessWidget {
   const HealthWellnessApp({super.key} );
   
