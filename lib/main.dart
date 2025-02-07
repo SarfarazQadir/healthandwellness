@@ -32,8 +32,7 @@ import 'screens/fitness_tracking_screen.dart'; // Ensure this file exists and is
 void main() {
   runApp(const HealthWellnessApp());
 }
-
-
+//  New
 class HealthWellnessApp extends StatelessWidget {
   const HealthWellnessApp({super.key} );
   
