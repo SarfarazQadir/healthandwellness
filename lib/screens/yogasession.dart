@@ -129,7 +129,7 @@ class YogaScreen extends StatelessWidget {
           // Start yoga session logic here
         },
         backgroundColor: const Color(0xFF4CAF50), // Green
-        child: const Icon(Icons.play_arrow),
+        child: const Icon(Icons.play_arrow),  
       ),
       bottomNavigationBar: BottomScreen(),
     );
